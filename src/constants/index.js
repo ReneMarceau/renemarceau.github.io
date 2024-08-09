@@ -41,6 +41,9 @@ import {
   s42,
   codeur,
   upwork,
+  videosblade,
+  maconnerie,
+  projecktai,
 } from '../assets';
 
 export const navLinks = [
@@ -168,28 +171,28 @@ const experiences = [
 ];
 
 const projects = [
-  {
-    id: 'project-1',
-    name: 'Transcendence',
-    description: 'My last 42 School project, a website to play pong against an AI.',
-    tags: [
-      {
-        name: 'django',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'postgresql',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'docker',
-        color: 'pink-text-gradient',
-      },
-    ],
-    image: math,
-    repo: 'https://github.com/ReneMarceau/ft_transcendence',
-    demo: '#',
-  },
+  // {
+  //   id: 'project-1',
+  //   name: 'Transcendence',
+  //   description: 'My last 42 School project, a website to play pong against an AI.',
+  //   tags: [
+  //     {
+  //       name: 'django',
+  //       color: 'blue-text-gradient',
+  //     },
+  //     {
+  //       name: 'postgresql',
+  //       color: 'green-text-gradient',
+  //     },
+  //     {
+  //       name: 'docker',
+  //       color: 'pink-text-gradient',
+  //     },
+  //   ],
+  //   image: math,
+  //   repo: 'https://github.com/ReneMarceau/ft_transcendence',
+  //   demo: '#',
+  // },
   {
     id: 'project-2',
     name: 'Projeckt AI',
@@ -208,7 +211,7 @@ const projects = [
         color: 'pink-text-gradient',
       },
     ],
-    image: komikult,
+    image: projecktai,
     repo: 'https://github.com/ReneMarceau/projeckt-dashboard',
     demo: 'https://www.projecktai.com/',
   },
@@ -231,7 +234,7 @@ const projects = [
         color: 'pink-text-gradient',
       },
     ],
-    image: leaderboard,
+    image: videosblade,
     repo: 'https://github.com/ReneMarceau/Videos_Blade',
     demo: 'https://videosblade.netlify.app/',
   },
@@ -249,7 +252,7 @@ const projects = [
         color: 'green-text-gradient',
       },
     ],
-    image: movie,
+    image: maconnerie,
     repo: 'https://github.com/ReneMarceau/maconneriepro',
     demo: 'https://www.maconneriepro.com/',
   },

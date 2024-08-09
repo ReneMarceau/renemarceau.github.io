@@ -26,6 +26,8 @@ import resume from './icons/resume.png';
 import send from './icons/send.png';
 import sendHover from './icons/sendHover.png';
 
+import resume_pdf from './personal/resume.pdf';
+
 import css from './tech/css.png';
 import python from './tech/python.png';
 import svelte from './tech/svelte.png';
@@ -63,6 +65,9 @@ import math from './projects/math-magicians.png';
 import movie from './projects/movie-metro.png';
 import nyeusi from './projects/nyeusi.png';
 import space from './projects/space-hub.png';
+import maconnerie from './projects/maconnerie.png';
+import projecktai from './projects/projecktai.png';
+import videosblade from './projects/videosblade.png';
 
 export {
   bwmap,
@@ -124,4 +129,8 @@ export {
   s42,
   codeur,
   upwork,
+  resume_pdf,
+  videosblade,
+  maconnerie,
+  projecktai,
 };
