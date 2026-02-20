@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { styles } from '../styles';
-import { navLinks } from '../constants';
 import { rene, bwmap, worldmap } from '../assets';
 
 const Hero = () => {
@@ -37,17 +35,17 @@ const Hero = () => {
           <div>
             <h1
               className={`${styles.heroHeadText} text-eerieBlack font-poppins uppercase`}>
-              Hi, I'm{' '}
+              {'Salut, moi c\'est'}{' '}
               <span
-                className="sm:text-battleGray sm:text-[80px] 
+                className="sm:text-battleGray sm:text-[80px]
                 text-eerieBlack text-[50px] font-mova
                 font-extrabold uppercase">
                 Rene Marceau
               </span>
             </h1>
             <p className={`${styles.heroSubText} mt-2 text-eerieBlack`}>
-              A passionate full stack developer. <br className="sm:block hidden" />
-              Turning complex problems into elegant solutions.
+              AI Engineer. <br className="sm:block hidden" />
+              Je transforme vos processus metier en systemes intelligents et autonomes.
             </p>
           </div>
           <div

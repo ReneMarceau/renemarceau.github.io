@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { SectionWrapper } from '../hoc';
 import { styles } from '../styles';
-import { github, pineapple, pineappleHover } from '../assets';
+// TODO: Re-import when project repos/demos are ready: github, pineapple, pineappleHover
 import { projects } from '../constants';
 import { fadeIn, textVariant, staggerContainer } from '../utils/motion';
 
@@ -11,8 +11,6 @@ const ProjectCard = ({
   name,
   description,
   image,
-  repo,
-  demo,
   index,
   active,
   handleClick,
@@ -22,7 +20,7 @@ const ProjectCard = ({
       variants={fadeIn('right', 'spring', index * 0.5, 0.75)}
       className={`relative ${
         active === id ? 'lg:flex-[3.5] flex-[10]' : 'lg:flex-[0.5] flex-[2]'
-      } flex items-center justify-center min-w-[170px] 
+      } flex items-center justify-center min-w-[170px]
       h-[420px] cursor-pointer card-shadow`}
       onClick={() => handleClick(id)}>
       <div
@@ -32,7 +30,7 @@ const ProjectCard = ({
       <img
         src={image}
         alt={name}
-        className="absolute w-full h-full object-cover rounded-[24px]"
+        className="absolute w-full h-full object-cover rounded-[24px] saturate-[0.15]"
       />
 
       {active !== id ? (
@@ -51,9 +49,10 @@ const ProjectCard = ({
             className="absolute bottom-0 p-8 justify-start w-full 
             flex-col bg-[rgba(122,122,122,0.5)] rounded-b-[24px] z-20">
             <div className="absolute inset-0 flex justify-end m-3">
-              <div
+              {/* TODO: Re-enable GitHub link when project repos are ready */}
+              {/* <div
                 onClick={() => window.open(repo, '_blank')}
-                className="bg-night sm:w-11 sm:h-11 w-10 h-10 rounded-full 
+                className="bg-night sm:w-11 sm:h-11 w-10 h-10 rounded-full
                   flex justify-center items-center cursor-pointer
                   sm:opacity-[0.9] opacity-[0.8]">
                 <img
@@ -61,7 +60,7 @@ const ProjectCard = ({
                   alt="source code"
                   className="w-4/5 h-4/5 object-contain"
                 />
-              </div>
+              </div> */}
             </div>
 
             <h2
@@ -75,14 +74,15 @@ const ProjectCard = ({
               font-poppins tracking-[1px]">
               {description}
             </p>
-            <button
-              className="live-demo flex justify-between 
-              sm:text-[16px] text-[14px] text-timberWolf 
-              font-bold font-beckman items-center py-5 pl-2 pr-3 
-              whitespace-nowrap gap-1 sm:w-[138px] sm:h-[50px] 
-              w-[125px] h-[46px] rounded-[10px] glassmorphism 
-              sm:mt-[22px] mt-[16px] hover:bg-battleGray 
-              hover:text-eerieBlack transition duration-[0.2s] 
+            {/* TODO: Re-enable demo button when project demos are ready */}
+            {/* <button
+              className="live-demo flex justify-between
+              sm:text-[16px] text-[14px] text-timberWolf
+              font-bold font-beckman items-center py-5 pl-2 pr-3
+              whitespace-nowrap gap-1 sm:w-[138px] sm:h-[50px]
+              w-[125px] h-[46px] rounded-[10px] glassmorphism
+              sm:mt-[22px] mt-[16px] hover:bg-battleGray
+              hover:text-eerieBlack transition duration-[0.2s]
               ease-in-out"
               onClick={() => window.open(demo, '_blank')}
               onMouseOver={() => {
@@ -98,11 +98,11 @@ const ProjectCard = ({
               <img
                 src={pineapple}
                 alt="pineapple"
-                className="btn-icon sm:w-[34px] sm:h-[34px] 
+                className="btn-icon sm:w-[34px] sm:h-[34px]
                   w-[30px] h-[30px] object-contain"
               />
-              LIVE DEMO
-            </button>
+              DEMO
+            </button> */}
           </div>
         </>
       )}
@@ -111,24 +111,21 @@ const ProjectCard = ({
 };
 
 const Projects = () => {
-  const [active, setActive] = useState('project-2');
+  const [active, setActive] = useState('project-1');
 
   return (
     <div className="-mt-[6rem]">
       <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} `}>Case Studies</p>
-        <h2 className={`${styles.sectionHeadTextLight}`}>Projects.</h2>
+        <p className={`${styles.sectionSubText} `}>Ce que je construis</p>
+        <h2 className={`${styles.sectionHeadTextLight}`}>Projets.</h2>
       </motion.div>
 
       <div className="w-full flex">
         <motion.p
           variants={fadeIn('', '', 0.1, 1)}
           className="mt-4 text-taupe text-[18px] max-w-3xl leading-[30px]">
-          These projects demonstrate my expertise with practical examples of
-          some of my work, including brief descriptions and links to code
-          repositories and live demos. They showcase my ability to tackle
-          intricate challenges, adapt to various technologies, and efficiently
-          oversee projects.
+          Des problemes reels, des solutions IA en production. Voici une
+          selection de projets qui illustrent mon approche.
         </motion.p>
       </div>
 
