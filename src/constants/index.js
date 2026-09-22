@@ -25,42 +25,24 @@ import {
 } from '../assets';
 
 export const navLinks = [
-  {
-    id: 'about',
-    title: 'A propos',
-  },
-  {
-    id: 'projects',
-    title: 'Projets',
-  },
-  {
-    id: 'experience',
-    title: 'Experience',
-  },
-  {
-    id: 'contact',
-    title: 'Contact',
-  },
+  { id: 'about' },
+  { id: 'projects' },
+  { id: 'experience' },
+  { id: 'contact' },
 ];
 
 const services = [
-  {
-    title: 'Recherche & Analyse Intelligente',
-    icon: database,
-  },
-  {
-    title: 'Agents IA & Assistants Autonomes',
-    icon: frontend,
-  },
-  {
-    title: 'Automatisation de Processus',
-    icon: backend,
-  },
-  {
-    title: 'Deploiement & Infrastructure Cloud',
-    icon: user,
-  },
+  { key: 'research', icon: database },
+  { key: 'agents', icon: frontend },
+  { key: 'automation', icon: backend },
+  { key: 'cloud', icon: user },
 ];
+
+const stats = ['years', 'projects', 'industries'];
+
+// Year I started working professionally; years of experience are derived from it
+const CAREER_START_YEAR = 2022;
+const yearsOfExperience = () => new Date().getFullYear() - CAREER_START_YEAR;
 
 const technologies = [
   {
@@ -123,139 +105,122 @@ const technologies = [
 
 const experiences = [
   {
-    title: 'Fondateur & Ingenieur IA Generative',
+    key: 'rezus',
     company_name: 'Rezus Agency',
     iconBg: '#333333',
     initials: 'RA',
-    date: 'Mai 2025 — Aujourd\'hui',
-    url: '',
+    url: 'https://www.rezus-agency.com/',
   },
   {
-    title: 'Ingenieur IA — Assistant Vocal & Calendrier Intelligent',
+    key: 'kopilot',
     company_name: 'Kopilot Conseil',
     iconBg: '#333333',
     initials: 'KC',
-    date: 'Mars 2025 — Mai 2025',
     url: 'https://www.kopilot-conseil.fr/',
   },
   {
-    title: 'Developpeur Full Stack IA — CRM & Assistant Conversationnel',
+    key: 'edevice',
     company_name: 'eDevice',
     iconBg: '#333333',
     initials: 'eD',
-    date: 'Janvier 2025 — Avril 2025',
     url: 'https://edevice.com/',
   },
   {
-    title: 'Ingenieur Full Stack & IA — Cloud Microservices',
+    key: 'jhmh',
     company_name: 'Groupe JHMH',
     iconBg: '#333333',
     initials: 'GJ',
-    date: 'Septembre 2024 — Fevrier 2025',
     url: 'https://jhmh.com/',
   },
   {
-    title: 'Fondateur & Developpeur IA — SaaS Automation',
+    key: 'ghostFactory',
     company_name: 'Ghost Factory',
     iconBg: '#333333',
     initials: 'GF',
-    date: 'Octobre 2024 — Janvier 2025',
     url: '',
   },
   {
-    title: 'Ingenieur Data IA',
+    key: 'artParis',
     company_name: 'Art Paris',
     iconBg: '#333333',
     initials: 'AP',
-    date: 'Juillet 2024 — Septembre 2024',
     url: 'https://www.artparis.com/',
   },
   {
-    title: 'Developpeur Full Stack IA — Plateforme VetTech',
+    key: 'smartbricks',
     company_name: 'Smartbricks',
     iconBg: '#333333',
     initials: 'SB',
-    date: 'Juin 2024 — Septembre 2024',
     url: 'https://www.smartbricks.io/',
   },
   {
-    title: 'Developpeur IA / R&D',
+    key: 'robinAndCo',
     company_name: 'Robin & Co',
     iconBg: '#333333',
     initials: 'RC',
-    date: 'Avril 2024 — Juin 2024',
     url: 'https://www.robinandco.com/',
   },
   {
-    title: 'Ingenieur IA — Plateforme Market Intelligence',
+    key: 'schoolab',
     company_name: 'Schoolab',
     iconBg: '#333333',
     initials: 'SL',
-    date: 'Mars 2024 — Mai 2024',
     url: 'https://www.theschoolab.com/',
   },
   {
-    title: 'Fondateur & CPO',
+    key: 'neuralspark',
     company_name: 'NeuralSpark Inc',
     iconBg: '#333333',
     initials: 'NS',
-    date: 'Aout 2023 — Mai 2024',
     url: 'https://neuralspark.ca/',
   },
   {
-    title: 'Ingenieur IA — Systeme CRM & Email Intelligent',
+    key: 'acceor',
     company_name: 'ACCEOR',
     iconBg: '#333333',
     initials: 'AC',
-    date: 'Octobre 2023 — Avril 2024',
     url: 'https://www.acceor.com/',
   },
   {
-    title: 'Developpeur Full Stack — Programme de Recherche Europeen',
+    key: 'upv',
     company_name: 'Universite Paul Valery Montpellier 3',
     iconBg: '#333333',
     initials: 'UPV',
-    date: 'Aout 2023 — Decembre 2023',
     url: 'https://www.univ-montp3.fr/',
   },
   {
-    title: 'Developpeur Full Stack — Plateforme de Generation Musicale IA',
+    key: 'maxtrack',
     company_name: 'Maxtrack',
     iconBg: '#333333',
     initials: 'MT',
-    date: 'Mars 2023 — Juillet 2023',
     url: '',
   },
   {
-    title: 'Developpeur Full Stack — Plateforme MedTech',
+    key: 'bealy',
     company_name: 'Bealy Medical',
     iconBg: '#333333',
     initials: 'BM',
-    date: 'Novembre 2022 — Fevrier 2023',
     url: 'https://bealymedical.com/',
   },
   {
-    title: 'Developpeur Web — Agence Growth Marketing',
+    key: 'cldc',
     company_name: 'CLDC Agency',
     iconBg: '#333333',
     initials: 'CLDC',
-    date: 'Mai 2022 — Octobre 2022',
     url: 'https://www.instagram.com/agencecdlc/',
   },
   {
-    title: 'Etudiant en Ingenierie Logicielle',
+    key: 'school42',
     company_name: '42',
     icon: s42,
     iconBg: '#333333',
-    date: 'Aout 2022 — Juillet 2024',
     url: 'https://42.fr/',
   },
   {
-    title: 'Developpeur Web Freelance',
+    key: 'maconneriePro',
     company_name: 'Maconnerie Pro',
     iconBg: '#333333',
     initials: 'MP',
-    date: 'Janvier 2022 — Avril 2022',
     url: 'https://www.maconneriepro.com/',
   },
 ];
@@ -264,8 +229,7 @@ const projects = [
   {
     id: 'project-1',
     name: 'Pushy',
-    description:
-      'Plusieurs agents IA qui collaborent sur des taches complexes — orchestration centralisee, execution isolee et monitoring en temps reel.',
+    key: 'pushy',
     tags: [
       { name: 'multi-agents', color: 'blue-text-gradient' },
       { name: 'MCP', color: 'green-text-gradient' },
@@ -278,8 +242,7 @@ const projects = [
   {
     id: 'project-2',
     name: 'Fouloide',
-    description:
-      'Un agent IA autonome qui genere du code, cree ses propres outils et s\'auto-ameliore — avec memoire persistante et contraintes de securite integrees.',
+    key: 'fouloide',
     tags: [
       { name: 'agentic AI', color: 'blue-text-gradient' },
       { name: 'MCP', color: 'green-text-gradient' },
@@ -292,8 +255,7 @@ const projects = [
   {
     id: 'project-3',
     name: 'Projeckt AI',
-    description:
-      'Une idee de business ? La plateforme genere automatiquement analyse SWOT, etude de marche, personas et projections financieres pour valider votre projet.',
+    key: 'projeckt',
     tags: [
       { name: 'next.js', color: 'blue-text-gradient' },
       { name: 'django', color: 'green-text-gradient' },
@@ -306,8 +268,7 @@ const projects = [
   {
     id: 'project-4',
     name: 'Prospect Auto',
-    description:
-      'De la decouverte du lead au closing, entierement automatise — CRM intelligent, scoring des leads, sequences d\'emails et integration Gmail native.',
+    key: 'prospect',
     tags: [
       { name: 'SaaS', color: 'blue-text-gradient' },
       { name: 'next.js', color: 'green-text-gradient' },
@@ -319,4 +280,22 @@ const projects = [
   },
 ];
 
-export { services, technologies, experiences, projects };
+const contactLinks = [
+  {
+    label: 'Email',
+    value: 'contact@renemarceau.com',
+    href: 'mailto:contact@renemarceau.com',
+  },
+  {
+    label: 'LinkedIn',
+    value: 'linkedin.com/in/renemarceau',
+    href: 'https://www.linkedin.com/in/renemarceau/',
+  },
+  {
+    label: 'GitHub',
+    value: 'github.com/ReneMarceau',
+    href: 'https://github.com/ReneMarceau',
+  },
+];
+
+export { services, stats, yearsOfExperience, contactLinks, technologies, experiences, projects };

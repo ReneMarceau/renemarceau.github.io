@@ -3,6 +3,7 @@ import {
   VerticalTimelineElement,
 } from 'react-vertical-timeline-component';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import 'react-vertical-timeline-component/style.min.css';
 import { styles } from '../styles';
 import { experiences } from '../constants';
@@ -10,21 +11,25 @@ import { SectionWrapper } from '../hoc';
 import { download, downloadHover, resume } from '../assets';
 import { textVariant } from '../utils/motion';
 
-const ExperienceCard = ({ experience }) => (
+const cardStyle = {
+  background: 'linear-gradient(145deg, #f4f4f6 0%, #e6e6e9 100%)',
+  color: '#292929',
+  border: '1px solid rgba(255, 255, 255, 0.6)',
+  borderRadius: '16px',
+  boxShadow:
+    'rgba(0, 0, 0, 0.12) 0px 18px 30px -12px, rgba(0, 0, 0, 0.06) 0px 4px 8px -2px',
+};
+
+const arrowStyle = { borderRight: '7px solid #e6e6e9' };
+
+const ExperienceCard = ({ experience, title, date }) => (
   <VerticalTimelineElement
-    contentStyle={{
-      background: '#eaeaec',
-      color: '#292929',
-      boxShadow:
-        'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
-    }}
-    contentArrowStyle={{
-      borderRight: '7px solid  #232631',
-    }}
+    contentStyle={cardStyle}
+    contentArrowStyle={arrowStyle}
     date={
       <div>
         <h3 className="text-dim text-[18px] font-bold font-beckman">
-          {experience.date}
+          {date}
         </h3>
       </div>
     }
@@ -45,19 +50,23 @@ const ExperienceCard = ({ experience }) => (
       </div>
     }>
     <div>
-      <h3 className="text-jetLight text-[24px] font-bold font-beckman tracking-[2px] leading-[1.2]">
-        {experience.title}
+      <h3 className="text-jetLight text-[22px] font-bold font-beckman tracking-[2px] leading-[1.2]">
+        {title}
       </h3>
+      <div className="mt-3 mb-2 h-[2px] w-8 bg-timberWolf" />
       <p
-        className="text-taupe text-[22px] font-semibold tracking-[1px]"
+        className="text-taupe text-[18px] font-semibold tracking-[1px]"
         style={{ margin: 0 }}>
         {experience.url ? (
           <a
             href={experience.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:underline">
+            className="group inline-flex items-center gap-1 transition-colors hover:text-eerieBlack">
             {experience.company_name}
+            <span className="text-[14px] transition-transform duration-300 group-hover:-translate-y-[2px] group-hover:translate-x-[2px]">
+              &#8599;
+            </span>
           </a>
         ) : (
           experience.company_name
@@ -68,35 +77,37 @@ const ExperienceCard = ({ experience }) => (
 );
 
 const Experience = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <motion.div variants={textVariant()}>
         <p className={`${styles.sectionSubText} sm:pl-16 pl-[2rem]`}>
-          Mon parcours
+          {t('experience.eyebrow')}
         </p>
         <h2 className={`${styles.sectionHeadText} sm:pl-16 pl-[2rem]`}>
-          Experience.
+          {t('experience.title')}
         </h2>
       </motion.div>
 
       <div className="mt-20 flex flex-col">
         <VerticalTimeline className="vertical-timeline-custom-line">
           {experiences.map((experience) => (
-            <ExperienceCard key={experience.company_name} experience={experience} />
+            <ExperienceCard
+              key={experience.key}
+              experience={experience}
+              title={t(`experience.items.${experience.key}.title`)}
+              date={t(`experience.items.${experience.key}.date`)}
+            />
           ))}
           <VerticalTimelineElement
             contentStyle={{
-              background: '#eaeaec',
-              color: '#292929',
-              boxShadow:
-                'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
+              ...cardStyle,
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
             }}
-            contentArrowStyle={{
-              borderRight: '7px solid  #232631',
-            }}
+            contentArrowStyle={arrowStyle}
             iconStyle={{ background: '#333333' }}
             icon={
               <div className="flex justify-center items-center w-full h-full">
@@ -108,7 +119,7 @@ const Experience = () => {
               </div>
             }>
             <button
-              className="live-demo flex justify-center
+              className="live-demo flex justify-center uppercase
               sm:text-[18px] text-[14px] text-timberWolf
               font-bold font-beckman items-center py-5 pl-3 pr-3
               whitespace-nowrap gap-3 sm:w-[148px] sm:h-[58px]
@@ -132,7 +143,7 @@ const Experience = () => {
                   .querySelector('.download-btn')
                   .setAttribute('src', download);
               }}>
-              MON CV
+              {t('experience.cv')}
               <img
                 src={download}
                 alt="download"

@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import emailjs from '@emailjs/browser';
 import { styles } from '../styles';
 import { SectionWrapper } from '../hoc';
@@ -7,6 +8,7 @@ import { slideIn } from '../utils/motion';
 import { send, sendHover } from '../assets';
 
 const Contact = () => {
+  const { t } = useTranslation();
   const formRef = useRef();
   const [form, setForm] = useState({
     name: '',
@@ -43,7 +45,7 @@ const Contact = () => {
       .then(
         () => {
           setLoading(false);
-          alert('Merci ! Je vous repondrai rapidement.');
+          alert(t('contact.success'));
 
           setForm({
             name: '',
@@ -53,33 +55,33 @@ const Contact = () => {
         },
         () => {
           setLoading(false);
-          alert('Erreur. Reessayez ou envoyez-moi un email a contact@renemarceau.com');
+          alert(t('contact.error'));
         }
       );
   };
 
   return (
     <div
-      className="-mt-[8rem] xl:flex-row flex-col-reverse 
+      className="-mt-[8rem] xl:flex-row flex-col-reverse
       flex gap-10 overflow-hidden">
       <motion.div
         variants={slideIn('left', 'tween', 0.2, 1)}
         className="flex-[0.75] bg-jet p-8 rounded-2xl">
-        <p className={styles.sectionSubText}>Parlons-en</p>
-        <h3 className={styles.sectionHeadTextLight}>Contact.</h3>
+        <p className={styles.sectionSubText}>{t('contact.eyebrow')}</p>
+        <h3 className={styles.sectionHeadTextLight}>{t('contact.title')}</h3>
 
         <form
           ref={formRef}
           onSubmit={handleSubmit}
           className="mt-10 flex flex-col gap-6 font-poppins">
           <label className="flex flex-col">
-            <span className="text-timberWolf font-medium mb-4">Votre nom</span>
+            <span className="text-timberWolf font-medium mb-4">{t('contact.nameLabel')}</span>
             <input
               type="text"
               name="name"
               value={form.name}
               onChange={handleChange}
-              placeholder="Votre nom"
+              placeholder={t('contact.namePlaceholder')}
               className="bg-eerieBlack py-4 px-6
               placeholder:text-taupe
               text-timberWolf rounded-lg outline-none
@@ -87,13 +89,13 @@ const Contact = () => {
             />
           </label>
           <label className="flex flex-col">
-            <span className="text-timberWolf font-medium mb-4">Votre email</span>
+            <span className="text-timberWolf font-medium mb-4">{t('contact.emailLabel')}</span>
             <input
               type="email"
               name="email"
               value={form.email}
               onChange={handleChange}
-              placeholder="votre@email.com"
+              placeholder={t('contact.emailPlaceholder')}
               className="bg-eerieBlack py-4 px-6
               placeholder:text-taupe
               text-timberWolf rounded-lg outline-none
@@ -102,14 +104,14 @@ const Contact = () => {
           </label>
           <label className="flex flex-col">
             <span className="text-timberWolf font-medium mb-4">
-              Votre message
+              {t('contact.messageLabel')}
             </span>
             <textarea
               rows="7"
               name="message"
               value={form.message}
               onChange={handleChange}
-              placeholder="Decrivez votre projet..."
+              placeholder={t('contact.messagePlaceholder')}
               className="bg-eerieBlack py-4 px-6
               placeholder:text-taupe
               text-timberWolf rounded-lg outline-none
@@ -133,7 +135,7 @@ const Contact = () => {
             onMouseOut={() => {
               document.querySelector('.contact-btn').setAttribute('src', send);
             }}>
-            {loading ? 'Envoi...' : 'Envoyer'}
+            {loading ? t('contact.sending') : t('contact.send')}
             <img
               src={send}
               alt="send"

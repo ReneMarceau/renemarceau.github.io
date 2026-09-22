@@ -9,7 +9,9 @@ const SectionWrapper = (Component, idName) => {
         variants={staggerContainer()}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.25 }}
+        // A ratio threshold can never be met by sections taller than ~4 viewports
+        // (Experience), so trigger as soon as the section is 15% into the screen
+        viewport={{ once: false, amount: 'some', margin: '0px 0px -15% 0px' }}
         className={`${styles.padding} max-w-7xl mx-auto relative z-0`}>
         <span className="hash-span" id={idName}>
           &nbsp;

@@ -16,8 +16,9 @@ This is a single-page React 18 portfolio site built with Vite, Tailwind CSS, and
 
 ### Key Layers
 
-- **`src/App.jsx`** — Top-level layout. Renders all sections in order: Navbar, Hero, About, Tech, Projects, Experience, Contact. Each section has its own background styling applied at this level.
-- **`src/constants/index.js`** — Central data file for all portfolio content (nav links, services, technologies, experiences, projects). To update portfolio content, edit this file.
+- **`src/App.jsx`** — Top-level layout. Renders all sections in order: Navbar, Hero, About, Tech, Projects, Experience, Contact, Footer. Each section has its own background styling applied at this level.
+- **`src/constants/index.js`** — Structural portfolio data (nav ids, service icons, technologies, experience companies/URLs, project images/tags, contact links, career start year). Items carry a `key` that points to their text in the locale files.
+- **`src/i18n/`** — i18next setup (`index.js`) and the FR/EN copy (`locales/fr.js`, `locales/en.js`). All visible text lives here; components read it with `useTranslation()`. Language is picked from `?lang=`, then localStorage, then the browser, with French as fallback. When adding or editing copy, update both locales.
 - **`src/assets/index.js`** — Barrel file for all image/asset imports. New assets must be exported here to be used in constants or components.
 - **`src/styles.js`** — Shared Tailwind class strings (typography, padding, layout utilities) used across components.
 - **`src/hoc/SectionWrapper.jsx`** — HOC that wraps section components with Framer Motion stagger animations and consistent padding/max-width. Components are wrapped like: `export default SectionWrapper(Component, 'sectionId')`.
@@ -36,6 +37,10 @@ Uses EmailJS (`@emailjs/browser`) with hardcoded service/template/public key val
 - Tailwind CSS with JIT mode and extensive custom theme in `tailwind.config.cjs` (custom colors, fonts, background gradients, breakpoints)
 - Custom fonts loaded via `@font-face` in `src/index.css` (Arenq, Mova, Beckman, Overcame)
 - Additional CSS classes (glassmorphism, gradients, card shadows) defined in `src/index.css`
+
+### Fonts and accents
+
+Mova has no real accented glyphs, so `index.css` maps its Latin-1 accented range to Beckman via `unicode-range`. Arenq (mobile menu) and Overcame Outline (wordmarks) have no accents either: the mobile menu strips accents, and wordmarks use unaccented text.
 
 ### Conventions
 
